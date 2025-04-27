@@ -4,7 +4,7 @@
 // @version      1.0.0
 // @description  Adds category filter buttons to the NotebookLM project list based on project titles. Handles SPA navigation.
 // @author       muharamdani
-// @match        https://notebooklm.google.com/
+// @match        https://notebooklm.google.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=google.co
 // @grant        GM_addStyle
 // @grant        GM_setValue
