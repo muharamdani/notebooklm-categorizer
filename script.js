@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NotebookLM Project Categorizer
 // @namespace    https://github.com/muharamdani
-// @version      1.0.0
+// @version      1.0.1
 // @description  Adds category filter buttons to the NotebookLM project list based on project titles. Handles SPA navigation.
 // @author       muharamdani
 // @match        https://notebooklm.google.com/*
