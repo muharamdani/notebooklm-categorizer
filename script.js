@@ -65,15 +65,19 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         /* Hide projects using display:none */
-        project-button[data-filtered="hidden"] {
+        project-button[data-filtered="hidden"],
+        tr.mat-mdc-row[data-filtered="hidden"] {
             display: none !important; /* Use !important to override potential existing styles */
         }
     `);
 
     // Determine the category of a project
     function getProjectCategory(projectElement) {
-        const titleElement = projectElement.querySelector('.project-button-title');
-        if (!titleElement) return 'General'; // Default if title not found
+        const titleElement = projectElement.querySelector('.project-button-title, .project-table-title');
+        if (!titleElement) {
+            GM_log('No title found in project element:', projectElement);
+            return 'General';
+        }
 
         const title = titleElement.textContent.toLowerCase().trim();
 
@@ -93,7 +97,7 @@
     // Filter projects
     function filterProjects(selectedCategory) {
         GM_log(`Filtering by: ${selectedCategory}`);
-        const projectButtons = document.querySelectorAll('.project-buttons-flow project-button'); // Select all project cards
+        const projectButtons = document.querySelectorAll('project-button, tr.mat-mdc-row'); // Select all project cards
 
         projectButtons.forEach(proj => {
             const projectCategory = getProjectCategory(proj);
@@ -151,8 +155,8 @@
     }
 
     // Wait for the project container to appear (repeatedly)
-    document.arrive('.project-buttons-flow', { existing: true }, function(element) {
-        GM_log("Project container '.project-buttons-flow' arrived or already exists.");
+    document.arrive('.project-buttons-flow, table.mdc-data-table__table', { existing: true }, function(element) {
+        GM_log("Project container arrived or already exists.");
         createFilterUI(element);
     });
 
