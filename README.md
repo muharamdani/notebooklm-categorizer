@@ -3,7 +3,14 @@
 **NotebookLM Project Categorizer** is a userscript that adds smart **category filter buttons** to the [NotebookLM](https://notebooklm.google.com/) project list.
 It detects project titles and automatically groups them into categories like "Tutorial", "Finance", "General", and more.
 
-It also handles **Single-Page Application (SPA)** navigation seamlessly — no need to reload manually when moving around!
+It also handles **Single-Page Application (SPA)** navigation seamlessly, no need to reload manually when moving around!
+
+---
+
+## Preview
+
+<img width="1187" alt="image" src="https://github.com/user-attachments/assets/dca59bcc-bf98-484a-aac7-c9d1fe0a2ab9" />
+<img width="1212" alt="image" src="https://github.com/user-attachments/assets/83176a49-8e72-4468-b023-8bcf1e03072b" />
 
 ---
 
