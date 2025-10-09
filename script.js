@@ -22,7 +22,7 @@
     // The value is an array of keywords to look for in the project titles.
     const categories = {
         'All': [],
-        'Tutorial': ['How to', 'Course', 'Lecture', 'Tutorial'],
+        'NetApp': ['Azure Netapp Files', 'ANF', 'CVO', 'NetApp Console'],
         'Finance': ['Investing', 'Gold', 'Stocks', 'Bonds', 'Funds'],
         'General': ['Untitled', 'Introduction'],
         // Add more categories like:
