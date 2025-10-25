@@ -58,6 +58,7 @@ It also handles **Single-Page Application (SPA)** navigation seamlessly, no need
 **Q:** I don't see any buttons after installing?
 
 **A:** Make sure:
+
 - You are on [https://notebooklm.google.com/](https://notebooklm.google.com/)
 - Tampermonkey is active
 - The script is enabled and saved
@@ -81,6 +82,18 @@ const categories = {
 ## 🛠️ Contributing
 
 If you have suggestions or improvements, feel free to fork the repo and submit a pull request!
+
+---
+
+## ☕ Support
+
+If you find this project useful, you can support its development:
+
+- Buy Me a Coffee
+   [![Buy Me A Coffee](https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png)](https://buymeacoffee.com/muharamdani)
+
+- Ko-fi
+   [![Ko-fi](https://cdn.ko-fi.com/cdn/kofi3.png?v=3)](https://ko-fi.com/muharamdani)
 
 ---
 
