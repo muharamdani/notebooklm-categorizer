@@ -89,10 +89,8 @@ If you have suggestions or improvements, feel free to fork the repo and submit a
 
 If you find this project useful, you can support its development:
 
-- Buy Me a Coffee
    [![Buy Me A Coffee](https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png)](https://buymeacoffee.com/muharamdani)
 
-- Ko-fi
    [![Ko-fi](https://cdn.ko-fi.com/cdn/kofi3.png?v=3)](https://ko-fi.com/muharamdani)
 
 ---
