@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         NotebookLM Project Categorizer
 // @namespace    https://github.com/muharamdani
-// @version      1.0.1
-// @description  Adds category filter buttons to the NotebookLM project list based on project titles. Handles SPA navigation.
+// @version      1.2.0
+// @description  Adds category filter buttons to the NotebookLM project list based on project titles. Handles SPA navigation. 'Other' category auto-catches unmatched projects.
 // @author       muharamdani
 // @match        https://notebooklm.google.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=google.co
@@ -20,11 +20,16 @@
     // Add more categories and keywords as needed. Keywords are case-insensitive.
     // The key is the Category Name that will appear on the button.
     // The value is an array of keywords to look for in the project titles.
+    //
+    // Special categories:
+    // - 'All': Shows all projects (no keywords needed)
+    // - 'Other': Catches all projects that don't match any other category
+    //            Leave empty [] to auto-catch, or add explicit keywords if needed
     const categories = {
         'All': [],
         'Tutorial': ['How to', 'Course', 'Lecture', 'Tutorial'],
         'Finance': ['Investing', 'Gold', 'Stocks', 'Bonds', 'Funds'],
-        'General': ['Untitled', 'Introduction'],
+        'Other': [], // Will automatically include unmatched projects
         // Add more categories like:
         // 'Work': ['Project X', 'Meeting Notes'],
         // 'Personal': ['Trip Planning', 'Recipes'],
@@ -76,13 +81,14 @@
         const titleElement = projectElement.querySelector('.project-button-title, .project-table-title');
         if (!titleElement) {
             GM_log('No title found in project element:', projectElement);
-            return 'General';
+            return 'Other';
         }
 
         const title = titleElement.textContent.toLowerCase().trim();
 
         for (const categoryName in categories) {
-            if (categoryName === 'All') continue; // Skip the 'All' category check here
+            // Skip special categories 'All' and 'Other' in the first pass
+            if (categoryName === 'All' || categoryName === 'Other') continue;
 
             const keywords = categories[categoryName];
             for (const keyword of keywords) {
@@ -91,7 +97,19 @@
                 }
             }
         }
-        return 'General'; // Default if no keywords match
+
+        // Check if 'Other' has explicit keywords
+        if (categories['Other'] && categories['Other'].length > 0) {
+            const otherKeywords = categories['Other'];
+            for (const keyword of otherKeywords) {
+                if (title.includes(keyword.toLowerCase())) {
+                    return 'Other';
+                }
+            }
+        }
+
+        // If no match found anywhere, return 'Other' as the catch-all
+        return 'Other';
     }
 
     // Filter projects
