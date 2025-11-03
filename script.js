@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         NotebookLM Project Categorizer
 // @namespace    https://github.com/muharamdani
-// @version      1.0.1
-// @description  Adds category filter buttons to the NotebookLM project list based on project titles. Handles SPA navigation.
+// @version      1.1.0
+// @description  Adds category filter buttons to the NotebookLM project list based on project titles. Handles SPA navigation. Automatically counts and displays projects per category.
 // @author       muharamdani
 // @match        https://notebooklm.google.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=google.co
@@ -94,6 +94,38 @@
         return 'General'; // Default if no keywords match
     }
 
+    // Count projects for each category and update button text
+    function updateButtonCounts() {
+        const projectButtons = document.querySelectorAll('project-button, tr.mat-mdc-row');
+        const categoryCounts = {};
+
+        // Initialize counts
+        Object.keys(categories).forEach(cat => {
+            categoryCounts[cat] = 0;
+        });
+
+        // Count total projects for 'All'
+        categoryCounts['All'] = projectButtons.length;
+
+        // Count projects per category
+        projectButtons.forEach(proj => {
+            const category = getProjectCategory(proj);
+            if (categoryCounts[category] !== undefined) {
+                categoryCounts[category]++;
+            }
+        });
+
+        // Update button text with counts
+        document.querySelectorAll('.category-filter-button').forEach(btn => {
+            const categoryName = btn.getAttribute('data-category');
+            if (categoryName && categoryCounts[categoryName] !== undefined) {
+                btn.textContent = `${categoryName} (${categoryCounts[categoryName]})`;
+            }
+        });
+
+        GM_log('Updated button counts:', categoryCounts);
+    }
+
     // Filter projects
     function filterProjects(selectedCategory) {
         GM_log(`Filtering by: ${selectedCategory}`);
@@ -110,7 +142,8 @@
 
         // Update active button style
         document.querySelectorAll('.category-filter-button').forEach(btn => {
-            if (btn.textContent === selectedCategory) {
+            const btnCategory = btn.getAttribute('data-category');
+            if (btnCategory === selectedCategory) {
                 btn.classList.add('active');
             } else {
                 btn.classList.remove('active');
@@ -127,7 +160,8 @@
         // Only create if it doesn't exist
         if (document.querySelector('.category-filter-container')) {
             GM_log("Filter UI already exists. Skipping creation.");
-            // Ensure the filter reflects the last known state
+            // Update counts and ensure the filter reflects the last known state
+            updateButtonCounts();
             const lastFilter = GM_getValue(ACTIVE_FILTER_KEY, 'All'); // Default to 'All' if nothing saved
             filterProjects(lastFilter);
             return;
@@ -140,6 +174,7 @@
         Object.keys(categories).forEach(categoryName => {
             const button = document.createElement('button');
             button.className = 'category-filter-button';
+            button.setAttribute('data-category', categoryName);
             button.textContent = categoryName;
             button.addEventListener('click', () => filterProjects(categoryName));
             filterContainer.appendChild(button);
@@ -147,6 +182,9 @@
 
         // Insert the buttons before the project flow container
         targetContainer.parentNode.insertBefore(filterContainer, targetContainer);
+
+        // Update button counts
+        updateButtonCounts();
 
         // Apply the previously saved filter, or 'All' if none
         const lastFilter = GM_getValue(ACTIVE_FILTER_KEY, 'All');
