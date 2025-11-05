@@ -6,7 +6,14 @@ It also handles **Single-Page Application (SPA)** navigation seamlessly, no need
 
 ---
 
-## Preview
+## Preview (extension)
+
+<img width="2168" height="1146" alt="image" src="https://github.com/user-attachments/assets/50aab499-c287-41bb-b69f-00dccd9409b1" />
+<img width="2168" height="1146" alt="image" src="https://github.com/user-attachments/assets/2b8039a7-18a8-4f2c-aa76-a38a88b4cfc0" />
+<img width="2161" height="840" alt="image" src="https://github.com/user-attachments/assets/bb11c4c3-c5f3-4707-ac05-4dc91eff89a8" />
+
+
+## Preview (userscript)
 
 <img width="1187" alt="image" src="https://github.com/user-attachments/assets/dca59bcc-bf98-484a-aac7-c9d1fe0a2ab9" />
 <img width="1212" alt="image" src="https://github.com/user-attachments/assets/83176a49-8e72-4468-b023-8bcf1e03072b" />
