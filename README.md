@@ -36,11 +36,11 @@ It also handles **Single-Page Application (SPA)** navigation seamlessly, no need
 3. Confirm the installation in the popup
 4. Visit [NotebookLM](https://notebooklm.google.com/) and the category filters will appear automatically
 
-#### Method B: Manual Installation (XPI file)
+#### Method B: Manual Installation with XPI file
 
-1. **Download the `.xpi` file** from the [Releases page](../../releases)
+1. **Download the `notebooklm-categorizer-1.2.0.xpi` file** from the `extensions/firefox/` folder
 2. **Open Firefox** and go to `about:addons`
-3. Click the **gear icon ⚙️** and select **"Install Add-on From File..."**
+3. Drag and drop the `.xpi` file into the Firefox window, **or** click the **gear icon ⚙️** and select **"Install Add-on From File..."**
 4. **Select the downloaded `.xpi` file**
 5. **Confirm installation** when prompted
 6. **Visit [NotebookLM](https://notebooklm.google.com/)** to see the filters in action
@@ -49,20 +49,12 @@ It also handles **Single-Page Application (SPA)** navigation seamlessly, no need
 
 Since this extension is not published on the Chrome Web Store (to avoid publication fees), you can install it manually:
 
-1. **Download the extension files** from the GitHub repository
+1. **Download or clone this repository**
 2. **Open Chrome** and go to `chrome://extensions/`
 3. **Enable "Developer mode"** in the top-right corner
-4. **Click "Load unpacked"** and select the folder containing the extension files
+4. **Click "Load unpacked"** and select the `extensions/chrome/` folder
 5. **The extension will be installed** and you'll see the NotebookLM Categorizer icon in your toolbar
 6. **Visit [NotebookLM](https://notebooklm.google.com/)** and the category filters will appear automatically
-
-**Required files for manual installation:**
-
-- `manifest.json`
-- `content_script.js`
-- `style.css`
-- `arrive.min.js`
-- Icon files (`icon16.png`, `icon48.png`, `icon128.png`)
 
 ### Option 3: Userscript (Tampermonkey)
 
