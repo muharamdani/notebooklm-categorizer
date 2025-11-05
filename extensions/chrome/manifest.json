@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "NotebookLM Categorizer",
+  "version": "1.2.0",
+  "description": "Adds category filter buttons to the NotebookLM notebook list based on titles.",
+  "author": "muharamdani",
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png", 
+    "128": "icon128.png"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://notebooklm.google.com/*"],
+      "css": ["style.css"],
+      "js": ["arrive.min.js", "content_script.js"]
+    }
+  ]
+}

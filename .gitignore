@@ -1,0 +1,31 @@
+# OS generated files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# macOS
+.AppleDouble
+.LSOverride
+
+# Linux
+*~
+
+# Windows
+$RECYCLE.BIN/
+*.lnk
+
+# VSCode
+.vscode/
+
+# Misc
+.idea/
+*.sublime-workspace
+*.sublime-project
+*.swp
+*.swo
+*.bak
+*.tmp
+*.temp
+*.orig
+*.rej

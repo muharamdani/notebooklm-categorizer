@@ -1,7 +1,6 @@
-# 📚 NotebookLM Project Categorizer
+# 📚 NotebookLM Categorizer
 
-**NotebookLM Project Categorizer** is a userscript that adds smart **category filter buttons** to the [NotebookLM](https://notebooklm.google.com/) project list.
-It detects project titles and automatically groups them into categories like "Tutorial", "Finance", "General", and more.
+**NotebookLM Categorizer** is a browser extension that adds smart **category filter buttons** to the [NotebookLM](https://notebooklm.google.com/) list. It detects titles and automatically groups them into categories like "Tutorial", "Finance", "General", and more.
 
 It also handles **Single-Page Application (SPA)** navigation seamlessly, no need to reload manually when moving around!
 
@@ -16,17 +15,58 @@ It also handles **Single-Page Application (SPA)** navigation seamlessly, no need
 
 ## ✨ Features
 
-- 🗂️ Auto-categorizes your projects based on title keywords
-- 🎛️ Adds a filter button UI above your project list
-- 🚀 Works with NotebookLM’s dynamic SPA navigation
+- 🗂️ Auto-categorizes based on title keywords
+- 🎛️ Adds a filter button UI
+- 🚀 Works with NotebookLM's dynamic SPA navigation
 - 💾 Remembers your last selected filter even after page reloads
 - 🌟 Clean, native-looking design
+- ⚙️ Customizable categories and keywords
+- 🔧 Category management modal for easy configuration
 
 ---
 
 ## 📥 Installation
 
-1. Install a userscript manager browser extension (like tampermonkey, Violentmonkey, etc.). I’m using Tampermonkey as the userscript manager. You can install it using the link below:
+### Option 1: Firefox Extension
+
+#### Method A: Install from Firefox Add-ons (Recommended if already approved by firefox)
+
+1. Visit the **[NotebookLM Categorizer page on Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/notebooklm-categorizer/)**
+2. Click **"Add to Firefox"**
+3. Confirm the installation in the popup
+4. Visit [NotebookLM](https://notebooklm.google.com/) and the category filters will appear automatically
+
+#### Method B: Manual Installation (XPI file)
+
+1. **Download the `.xpi` file** from the [Releases page](../../releases)
+2. **Open Firefox** and go to `about:addons`
+3. Click the **gear icon ⚙️** and select **"Install Add-on From File..."**
+4. **Select the downloaded `.xpi` file**
+5. **Confirm installation** when prompted
+6. **Visit [NotebookLM](https://notebooklm.google.com/)** to see the filters in action
+
+### Option 2: Chrome Extension (Manual Installation)
+
+Since this extension is not published on the Chrome Web Store (to avoid publication fees), you can install it manually:
+
+1. **Download the extension files** from the GitHub repository
+2. **Open Chrome** and go to `chrome://extensions/`
+3. **Enable "Developer mode"** in the top-right corner
+4. **Click "Load unpacked"** and select the folder containing the extension files
+5. **The extension will be installed** and you'll see the NotebookLM Categorizer icon in your toolbar
+6. **Visit [NotebookLM](https://notebooklm.google.com/)** and the category filters will appear automatically
+
+**Required files for manual installation:**
+
+- `manifest.json`
+- `content_script.js`
+- `style.css`
+- `arrive.min.js`
+- Icon files (`icon16.png`, `icon48.png`, `icon128.png`)
+
+### Option 3: Userscript (Tampermonkey)
+
+1. Install a userscript manager browser extension:
    - [Chrome Web Store](https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)
    - [Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/)
    - [Microsoft Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/tampermonkey/iikmkjmpaadaobahmlepeloendndfphd)
@@ -34,7 +74,7 @@ It also handles **Single-Page Application (SPA)** navigation seamlessly, no need
 2. Create a **new userscript**:
    - Click the Tampermonkey icon ➔ *Create a new script*.
 
-3. Replace the default code with the [**NotebookLM Project Categorizer** script](script.js).
+3. Replace the default code with the [**NotebookLM Categorizer** script](script.js).
 
 4. Save the script.
 
@@ -46,10 +86,29 @@ It also handles **Single-Page Application (SPA)** navigation seamlessly, no need
 
 ## ⚙️ How It Works
 
-- **Auto-detection:** Based on project titles and keywords
+- **Auto-detection:** Based on titles and keywords
 - **Real-time updating:** Listens for dynamic page changes with [arrive.js](https://github.com/uzairfarooq/arrive)
 - **Styling:** Lightweight custom CSS for clean, minimal look
-- **Persistence:** Saves active filter across sessions using `GM_setValue` and `GM_getValue`
+- **Persistence:** Saves active filter across sessions using browser storage
+- **Customizable:** Easy category management through built-in modal
+
+---
+
+## 🎯 Using the Extension
+
+### Default Categories
+
+- **All**: Shows all notebooks
+- **Tutorial**: Matches "How to", "Course", "Lecture", "Tutorial"
+- **Finance**: Matches "Investing", "Gold", "Stocks", "Bonds", "Funds"  
+- **Other**: Automatically catches all unmatched notebooks
+
+### Customizing Categories
+
+1. Click the **gear icon (⚙️)** in the filter bar
+2. Add, edit, or remove categories in the management modal
+3. Set keywords as comma-separated values
+4. Click "Save and Close" to apply changes
 
 ---
 
@@ -60,22 +119,20 @@ It also handles **Single-Page Application (SPA)** navigation seamlessly, no need
 **A:** Make sure:
 
 - You are on [https://notebooklm.google.com/](https://notebooklm.google.com/)
-- Tampermonkey is active
-- The script is enabled and saved
-- Wait a few seconds if the project list is still loading
+- The extension/userscript is active and enabled
+- Wait a few seconds if the list is still loading
 
 **Q:** Can I change the categories or keywords?
 
-**A:** Yes!
-Inside the script, edit the `categories` section like this:
+**A:** Yes! Click the gear icon in the filter bar to open the category manager, or edit the categories directly in the script/extension files.
 
-```javascript
-const categories = {
-    'All': [],
-    'My Custom Category': ['Keyword1', 'Keyword2'],
-    ...
-};
-```
+**Q:** Why isn't this on the Chrome Web Store?
+
+**A:** Google charges a one-time $5 developer fee to publish extensions, which is why this is available as a manual installation or userscript. However, it's available on Firefox Add-ons for free!
+
+**Q:** Is this safe to use?
+
+**A:** Yes! The extension only runs on notebooklm.google.com, doesn't collect any personal data, and all code is open source for transparency.
 
 ---
 
@@ -89,9 +146,9 @@ If you have suggestions or improvements, feel free to fork the repo and submit a
 
 If you find this project useful, you can support its development:
 
-   [![Buy Me A Coffee](https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png)](https://buymeacoffee.com/muharamdani)
+[![Buy Me A Coffee](https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png)](https://buymeacoffee.com/muharamdani)
 
-   [![Ko-fi](https://cdn.ko-fi.com/cdn/kofi3.png?v=3)](https://ko-fi.com/muharamdani)
+[![Ko-fi](https://cdn.ko-fi.com/cdn/kofi3.png?v=3)](https://ko-fi.com/muharamdani)
 
 ---
 
