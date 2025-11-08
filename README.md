@@ -36,7 +36,7 @@ It also handles **Single-Page Application (SPA)** navigation seamlessly, no need
 
 ### Option 1: Firefox Extension
 
-#### Method A: Install from Firefox Add-ons (Recommended if already approved by firefox)
+#### Method A: Install from Firefox Add-ons (Recommended)
 
 1. Visit the **[NotebookLM Categorizer page on Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/notebooklm-categorizer/)**
 2. Click **"Add to Firefox"**
