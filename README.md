@@ -1,6 +1,6 @@
 # 📚 NotebookLM Categorizer
 
-**NotebookLM Categorizer** is a browser extension that adds smart **category filter buttons** to the [NotebookLM](https://notebooklm.google.com/) list. It detects titles and automatically groups them into categories like "Tutorial", "Finance", "General", and more.
+**NotebookLM Categorizer** is a browser extension that adds smart **category filter buttons** to the [NotebookLM](https://notebook.google.com/) list. It detects titles and automatically groups them into categories like "Tutorial", "Finance", "General", and more.
 
 It also handles **Single-Page Application (SPA)** navigation seamlessly, no need to reload manually when moving around!
 
@@ -41,7 +41,7 @@ It also handles **Single-Page Application (SPA)** navigation seamlessly, no need
 1. Visit the **[NotebookLM Categorizer page on Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/notebooklm-categorizer/)**
 2. Click **"Add to Firefox"**
 3. Confirm the installation in the popup
-4. Visit [NotebookLM](https://notebooklm.google.com/) and the category filters will appear automatically
+4. Visit [NotebookLM](https://notebook.google.com/) and the category filters will appear automatically
 
 #### Method B: Manual Installation with XPI file
 
@@ -50,7 +50,7 @@ It also handles **Single-Page Application (SPA)** navigation seamlessly, no need
 3. Drag and drop the `.xpi` file into the Firefox window, **or** click the **gear icon ⚙️** and select **"Install Add-on From File..."**
 4. **Select the downloaded `.xpi` file**
 5. **Confirm installation** when prompted
-6. **Visit [NotebookLM](https://notebooklm.google.com/)** to see the filters in action
+6. **Visit [NotebookLM](https://notebook.google.com/)** to see the filters in action
 
 ### Option 2: Chrome Extension (Manual Installation)
 
@@ -61,7 +61,7 @@ Since this extension is not published on the Chrome Web Store (to avoid publicat
 3. **Enable "Developer mode"** in the top-right corner
 4. **Click "Load unpacked"** and select the `extensions/chrome/` folder
 5. **The extension will be installed** and you'll see the NotebookLM Categorizer icon in your toolbar
-6. **Visit [NotebookLM](https://notebooklm.google.com/)** and the category filters will appear automatically
+6. **Visit [NotebookLM](https://notebook.google.com/)** and the category filters will appear automatically
 
 ### Option 3: Userscript (Tampermonkey)
 
@@ -77,7 +77,7 @@ Since this extension is not published on the Chrome Web Store (to avoid publicat
 
 4. Save the script.
 
-5. Visit [https://notebooklm.google.com/](https://notebooklm.google.com/).
+5. Visit [https://notebook.google.com/](https://notebook.google.com/).
 
 6. ✨ **Done!** The category filter buttons will appear automatically when the page loads.
 
@@ -117,7 +117,7 @@ Since this extension is not published on the Chrome Web Store (to avoid publicat
 
 **A:** Make sure:
 
-- You are on [https://notebooklm.google.com/](https://notebooklm.google.com/)
+- You are on [https://notebook.google.com/](https://notebook.google.com/)
 - The extension/userscript is active and enabled
 - Wait a few seconds if the list is still loading
 
@@ -131,7 +131,7 @@ Since this extension is not published on the Chrome Web Store (to avoid publicat
 
 **Q:** Is this safe to use?
 
-**A:** Yes! The extension only runs on notebooklm.google.com, doesn't collect any personal data, and all code is open source for transparency.
+**A:** Yes! The extension only runs on notebook.google.com, doesn't collect any personal data, and all code is open source for transparency.
 
 ---
 
